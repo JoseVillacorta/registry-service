@@ -40,7 +40,6 @@ eureka:
 
 - **GATEWAY-SERVICE**: API Gateway
 - **MS-PRODUCTOS**: Microservicio de productos
-- **MS-PEDIDOS**: Microservicio de pedidos (futuro)
 - **CONFIG-SERVER**: Servidor de configuración
 
 ## Despliegue
@@ -57,5 +56,3 @@ docker-compose up --build registry-service
 ## Notas
 
 - Debe iniciarse antes que otros microservicios
-- No se registra a sí mismo en Eureka
-- Es independiente de la base de datos
