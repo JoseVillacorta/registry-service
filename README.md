@@ -1,58 +1,22 @@
 # Registry Service
 
-Servicio de registro y descubrimiento de microservicios usando Netflix Eureka.
+Eureka Server para service discovery y registro de microservicios.
+
+## Descripción
+Servicio de registro y descubrimiento de microservicios que permite:
+- Registro automático de servicios en el ecosistema
+- Descubrimiento dinámico de instancias de servicios
+- Load balancing y alta disponibilidad
+- Health monitoring de servicios registrados
 
 ## Funcionalidades
+- **Service Registry**: Registro automático de todos los microservicios
+- **Service Discovery**: Resolución de nombres de servicios
+- **Health Monitoring**: Verificación del estado de servicios registrados
+- **Dashboard**: UI web para visualizar servicios registrados
 
-- **Registro automático**: Microservicios se registran al iniciar
-- **Descubrimiento dinámico**: Localización automática de servicios
-- **Balanceo de carga**: Distribución de requests entre instancias
-- **Monitoreo de salud**: Detección automática de servicios caídos
-- **Dashboard web**: Interfaz visual para ver servicios registrados
+## Ejecutar
 
-## Dashboard
-
-- **URL**: `http://localhost:8761`
-- **Vista**: Lista de aplicaciones registradas con instancias
-- **Estados**: UP (activo), DOWN (inactivo), STARTING (iniciando)
-
-## Configuración Docker
-
-- **Puerto**: 8761
-- **Modo**: Servidor Eureka (no cliente)
-- **Hostname**: `registry-service`
-- **Perfil**: docker
-
-## Configuración
-
-```yaml
-server:
-  port: 8761
-eureka:
-  instance:
-    hostname: registry-service
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-```
-
-## Servicios Registrados
-
-- **GATEWAY-SERVICE**: API Gateway
-- **MS-PRODUCTOS**: Microservicio de productos
-- **CONFIG-SERVER**: Servidor de configuración
-
-## Despliegue
-
+### Desarrollo Local
 ```bash
-docker-compose up --build registry-service
-```
-
-## Health Check
-
-- Endpoint: `http://localhost:8761`
-- Estado: Dashboard accesible = Servicio saludable
-
-## Notas
-
-- Debe iniciarse antes que otros microservicios
+./gradlew bootRun --spring.profiles.active=dev
